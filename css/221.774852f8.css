@@ -1,0 +1,26 @@
+
+.search[data-v-6fb524a1] {
+  text-align: center;
+}
+input[type='search'][data-v-6fb524a1] {
+  max-width: 200px;
+}
+.card[data-v-6fb524a1] {
+  background-color: rgb(0 0 0 / 0%);
+  border: none;
+  align-items: center;
+  cursor: pointer;
+}
+.card > div[data-v-6fb524a1] {
+  align-self: center;
+}
+.card > div > *[data-v-6fb524a1] {
+  display: block;
+}
+.card img[data-v-6fb524a1] {
+  border-radius: 10%;
+}
+button.clear[data-v-6fb524a1] {
+  font-size: 0.5em;
+}
+

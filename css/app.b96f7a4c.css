@@ -1,0 +1,118 @@
+
+.header-logo .logo[data-v-44165686] {
+  width: 8rem;
+  height: 8rem;
+  line-height: 8rem;
+  margin: auto;
+}
+.menu-button[data-v-44165686] {
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+.pronunciation a[data-v-44165686] {
+  text-decoration: none;
+  color: unset;
+}
+.pronunciation[data-v-44165686] {
+  padding-bottom: 1em;
+  margin-top: -1em;
+  font-size: 1em;
+  font-style: italic;
+}
+
+
+.back-to-home a i[data-v-670a79ed] {
+  font-size: 5em;
+}
+.container.bottom[data-v-670a79ed] {
+  padding-bottom: 4vh;
+  max-width: 100%;
+}
+
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  background-size: cover;
+  background-color: #f8f9fa;
+}
+.card-body {
+  border-radius: 0.25rem;
+}
+
+.bg-go-next {
+  background-color: green;
+}
+.bg-go-post {
+  background-color: purple;
+}
+.custom-file-upload {
+  background-color: orangered;
+  border-radius: 2rem;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+body {
+  height: 100vh;
+}
+
+.logo {
+  content: url(/img/17c0bf46.png);
+}
+
+#app,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  color: cadetblue;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    /* background-color: black; */
+    /* color: white; */
+  }
+  .logo {
+    content: url(/img/4520eeee.png);
+  }
+
+  #app,
+  span,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  button {
+    color: olive;
+  }
+
+  .card {
+    background-color: black;
+  }
+
+  #app {
+    filter: invert(100%);
+  }
+  #app > * {
+    filter: invert(100%);
+  }
+}
+
