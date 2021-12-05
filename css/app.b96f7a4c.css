@@ -89,7 +89,7 @@ button {
     /* color: white; */
   }
   .logo {
-    content: url('./img/4520eeee.png');
+    content: url('../img/4520eeee.png');
   }
 
   #app,
