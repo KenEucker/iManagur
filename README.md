@@ -1,4 +1,4 @@
-# helping you manage your <img class="imgur" src="images/imgur-logo.png" /> album images
+# helping you manage your <img class="imgur" src="imgur-logo.png" /> album images
 
 I have been working with Imgur images and the Imgur API for several years now, and I really
 appreciate the service. No frills, no ads for third-party api usage, unlimited storage and
