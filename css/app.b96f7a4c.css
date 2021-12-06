@@ -67,7 +67,7 @@ body {
 }
 
 .logo {
-  content: url(/img/17c0bf46.png);
+  content: url('../img/17c0bf46.png');
 }
 
 #app,
