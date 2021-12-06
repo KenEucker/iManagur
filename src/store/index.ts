@@ -18,9 +18,9 @@ export const key: InjectionKey<Store<State>> = Symbol()
 
 const imgurOpts: ImgurCredentials = {
   /// TODO: set these in a menu
-  clientId: process.env.IMGUR_CLIENT_ID ?? '',
-  accessToken: process.env.IMGUR_ACCESS_TOKEN ?? '',
+  clientId: '47da78be7590eaa',
 }
+console.log({ imgurOpts })
 const imgur = new ImgurClient(imgurOpts)
 
 export const store = createStore<State>({
@@ -29,7 +29,7 @@ export const store = createStore<State>({
     album: '',
     images: [],
     albums: [],
-    credentials: {},
+    credentials: imgurOpts,
   },
   getters: {
     getAccount(state) {
@@ -71,7 +71,6 @@ export const store = createStore<State>({
     setCredentials({ commit }) {
       commit('credentials', {
         clientId: '47da78be7590eaa',
-        clientSecret: '92710a0b1e7a8159f82980a0b53029cfb9176718',
       })
     },
     setAccount({ commit, state }) {
