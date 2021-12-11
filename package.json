@@ -15,7 +15,7 @@
     "bootstrap": "^5.1.3",
     "bootstrap-vue-3": "0.0.5",
     "core-js": "^3.19.2",
-    "imgur": "keneucker/node-imgur#release",
+    "imanagur": "^1.1.0",
     "vue": "^3.2.23",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^4.0.12",

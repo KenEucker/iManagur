@@ -14,5 +14,6 @@ whatsoever.
 So, I built this tool, iManagur, mostly to provide a paginated way to edit your image
 descriptions and titles, with a search. Boom, that's it.
 
-Please consider donating to the success of this project and I thank you all for your
-support. It helps motivate me to continue to make things for anyone and everyone to use.
+[imanagur](https://github.com/keneucker/imanagur-core) is also an isomorphic javascript library that makes this website possible, written in typescript. The imanagur library makes it easy to upload, edit, and retrieve imgur images.
+
+Please consider [donating](https://github.com/sponsors/KenEucker) to the success of this project and I thank you all for your support. It helps motivate me to continue to make things for anyone and everyone to use.
