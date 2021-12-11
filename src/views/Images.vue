@@ -5,7 +5,10 @@
       <div class="col col-md-auto">
         <b-input-group class="search">
           <template #prepend>
-            <b-input-group-text>Search</b-input-group-text>
+            <b-input-group-text v-if="!searchString?.length">Search</b-input-group-text
+            ><b-input-group-text v-if="searchString?.length">
+              <b-button class="clear" @click="clearSearch">X</b-button>
+            </b-input-group-text>
           </template>
           <b-form-input
             v-model="searchString"
@@ -14,12 +17,7 @@
             @keyup="searchKeyup"
           ></b-form-input>
           <template #append>
-            <b-button v-if="!searchString?.length" type="button" class="btn" @click="search"
-              >🔎</b-button
-            >
-            <b-input-group-text v-if="searchString?.length">
-              <b-button class="clear" @click="clearSearch">X</b-button>
-            </b-input-group-text>
+            <b-button type="button" class="btn" @click="search">🔎</b-button>
           </template>
         </b-input-group>
       </div>
@@ -120,11 +118,11 @@ export default defineComponent({
     this.$store.dispatch('setImages')
   },
   methods: {
-    searchKeyup() {
-      console.log('searchKeyup')
+    searchKeyup(event) {
       if (
-        this.searchString.length !== this.oldSearchString.length ||
-        this.searchString.length === 0
+        (this.searchString.length !== this.oldSearchString.length ||
+          this.searchString.length === 0) &&
+        event.code === 13
       ) {
         this.search(!this.searchString.length)
       }
