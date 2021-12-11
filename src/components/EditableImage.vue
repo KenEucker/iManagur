@@ -22,7 +22,12 @@
         />
       </svg>
     </i>
-    <img class="img-fluid" :src="image.link" v-bind="$attrs" @load="onImgLoad" />
+    <img
+      class="img-fluid"
+      :src="expanded ? image.link : getImgurImageSized(image.link)"
+      v-bind="$attrs"
+      @load="onImgLoad"
+    />
     <div v-if="expanded" class="editable-fields">
       <fieldset class="fields">
         <legend>Editable Fields</legend>
@@ -129,6 +134,13 @@ export default defineComponent({
       this.isLoaded = true
       // console.log('editable-image loaded', this.image.id)
       this.$emit('load')
+    },
+    getImgurImageSized(imgurUrl = '', size = 'm') {
+      return imgurUrl
+        .replace('.jpg', `${size}.jpg`)
+        .replace('.gif', `${size}.gif`)
+        .replace('.png', `${size}.png`)
+        .replace('.mp4', `${size}.mp4`)
     },
   },
 })

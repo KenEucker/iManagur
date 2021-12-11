@@ -122,15 +122,15 @@ export default defineComponent({
       if (
         (this.searchString.length !== this.oldSearchString.length ||
           this.searchString.length === 0) &&
-        event.code === 13
+        event.code === 'Enter'
       ) {
-        this.search(!this.searchString.length)
+        this.search(event, this.searchString.length === 0)
       }
     },
     clearSearch() {
-      this.search(true)
+      this.search(undefined, true)
     },
-    search(clear) {
+    search(event, clear) {
       console.log('search')
       this.startLoading()
       this.perPage = 10
