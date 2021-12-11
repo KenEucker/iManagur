@@ -161,6 +161,9 @@ export default defineComponent({
     startLoading() {
       this.imagesLoaded = []
       this.loading = true
+      setTimeout(() => {
+        this.loading = false
+      }, 2500)
     },
     selectPerPageCount(event) {
       this.selectedPage = 0
