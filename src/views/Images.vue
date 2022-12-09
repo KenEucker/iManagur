@@ -1,70 +1,8 @@
-<template>
-  <div class="container">
-    <h3>Images for the album ({{ currentAlbum }})</h3>
-    <div class="row justify-content-md-center">
-      <div class="col col-md-auto">
-        <b-input-group class="search">
-          <template #prepend>
-            <b-input-group-text v-if="!searchString?.length">Search</b-input-group-text
-            ><b-input-group-text v-if="searchString?.length">
-              <b-button class="clear" @click="clearSearch">X</b-button>
-            </b-input-group-text>
-          </template>
-          <b-form-input
-            v-model="searchString"
-            type="search"
-            placeholder="id or title or desc"
-            @keyup="searchKeyup"
-          ></b-form-input>
-          <template #append>
-            <b-button type="button" class="btn" @click="search">🔎</b-button>
-          </template>
-        </b-input-group>
-      </div>
-    </div>
-    <b-pagination
-      v-model="selectedPage"
-      :total-rows="count"
-      :per-page="perPage"
-      aria-controls="itemList"
-      align="center"
-      pills
-      @change="startLoading"
-    ></b-pagination>
-    <b-overlay :show="loading">
-      <ul id="itemList" class="list-unstyled">
-        <li v-for="imageList in iMages" :key="imageList[0].id">
-          <b-row>
-            <i-mage
-              v-if="imageList[0]"
-              :image="imageList[0]"
-              @load="imageLoaded(imageList[0].id)"
-            />
-            <i-mage
-              v-if="imageList[1]"
-              :image="imageList[1]"
-              @load="imageLoaded(imageList[1].id)"
-            />
-          </b-row>
-        </li>
-      </ul>
-    </b-overlay>
-    <b-pagination
-      v-model="selectedPage"
-      :total-rows="count"
-      :per-page="perPage"
-      aria-controls="itemList"
-      align="center"
-      pills
-      @change="startLoading"
-    ></b-pagination>
-  </div>
-</template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import { mapGetters } from 'vuex'
-import IMage from '@/components/IMage.vue'
+import IMage from '../components/IMage.vue'
 
 export default defineComponent({
   name: 'ImagesPage',
@@ -163,17 +101,17 @@ export default defineComponent({
         this.loading = false
       }, 2500)
     },
-    selectPerPageCount(event) {
+    selectPerPageCount(event: any) {
       this.selectedPage = 0
       this.perPage = event.target.value
     },
-    getSelectedPageImages(images) {
+    getSelectedPageImages(images = null) {
       return (images ?? this.images ?? this.getImages).slice(
         (this.selectedPage - 1) * this.perPage,
         this.selectedPage * this.perPage
       )
     },
-    imageLoaded(loadedImageId) {
+    imageLoaded(loadedImageId:number) {
       const imageNotLoaded = this.imagesLoaded.indexOf(loadedImageId) === -1
 
       if (imageNotLoaded) {
@@ -196,6 +134,70 @@ export default defineComponent({
   },
 })
 </script>
+
+<template>
+  <div class="container">
+    <h3>Images for the album ({{ currentAlbum }})</h3>
+    <div class="row justify-content-md-center">
+      <div class="col col-md-auto">
+        <b-input-group class="search">
+          <template #prepend>
+            <b-input-group-text v-if="!searchString?.length">Search</b-input-group-text
+            ><b-input-group-text v-if="searchString?.length">
+              <b-button class="clear" @click="clearSearch">X</b-button>
+            </b-input-group-text>
+          </template>
+          <b-form-input
+            v-model="searchString"
+            type="search"
+            placeholder="id or title or desc"
+            @keyup="searchKeyup"
+          ></b-form-input>
+          <template #append>
+            <b-button type="button" class="btn" @click="search">🔎</b-button>
+          </template>
+        </b-input-group>
+      </div>
+    </div>
+    <b-pagination
+      v-model="selectedPage"
+      :total-rows="count"
+      :per-page="perPage"
+      aria-controls="itemList"
+      align="center"
+      pills
+      @change="startLoading"
+    ></b-pagination>
+    <b-overlay :show="loading">
+      <ul id="itemList" class="list-unstyled">
+        <li v-for="imageList in iMages" :key="imageList[0].id">
+          <b-row>
+            <i-mage
+              v-if="imageList[0]"
+              :image="imageList[0]"
+              @load="imageLoaded(imageList[0].id)"
+            />
+            <i-mage
+              v-if="imageList[1]"
+              :image="imageList[1]"
+              @load="imageLoaded(imageList[1].id)"
+            />
+          </b-row>
+        </li>
+      </ul>
+    </b-overlay>
+    <b-pagination
+      v-model="selectedPage"
+      :total-rows="count"
+      :per-page="perPage"
+      aria-controls="itemList"
+      align="center"
+      pills
+      @change="startLoading"
+    ></b-pagination>
+  </div>
+</template>
+
 <style scoped>
 .search {
   text-align: center;

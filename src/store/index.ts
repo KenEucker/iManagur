@@ -1,8 +1,8 @@
 import { InjectionKey } from 'vue'
 import { createStore, Store } from 'vuex'
-import { AlbumData, ImageData } from 'imanagur/lib/common/types'
-import { ImgurCredentials } from 'imanagur'
-import ImgurClient from 'imanagur'
+import { AlbumData, ImageData } from 'imgur/lib/common/types'
+import { ImgurCredentials } from 'imgur'
+import ImgurClient from 'imgur'
 
 // define your typings for the store state
 export interface State {

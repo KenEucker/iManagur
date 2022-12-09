@@ -1,21 +1,12 @@
-<template>
-  <app-header />
-  <router-view />
-  <app-footer />
-</template>
-<script>
-import { defineComponent } from 'vue'
-import AppHeader from '@/components/AppHeader.vue'
-import AppFooter from '@/components/AppFooter.vue'
-
-export default defineComponent({
-  name: 'App',
-  components: {
-    AppHeader,
-    AppFooter,
-  },
-})
+<script setup lang="ts">
+import AppHeader from './components/AppHeader.vue'
+import AppFooter from './components/AppFooter.vue'
 </script>
+<template>
+  <AppHeader />
+  <router-view />
+  <AppFooter />
+</template>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

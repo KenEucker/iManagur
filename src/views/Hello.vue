@@ -30,7 +30,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import { mapGetters } from 'vuex'
 import Markdown from '../../readme.md'
@@ -59,8 +59,8 @@ export default defineComponent({
       this.$store.commit('account', this.currentAccount)
       this.$router.push('/albums')
     },
-    currentAccountKeydown(event) {
-      if (event.which === 13 && this.currentAccount.length) {
+    currentAccountKeydown(event: KeyboardEvent) {
+      if (event.key === 'Enter' && this.currentAccount.length) {
         this.goAlbums()
       }
     },

@@ -16,9 +16,9 @@
     </b-card>
   </b-col>
 </template>
-<script lang="Ts">
+<script lang="ts">
 import { defineComponent } from 'vue'
-import EditableImage from '@/components/EditableImage.vue'
+import EditableImage from '@/EditableImage.vue'
 
 export default defineComponent({
   name: 'IMage',
@@ -33,8 +33,8 @@ export default defineComponent({
       },
     },
   },
-emits: ['load'],
-  data(){
+  emits: ['load'],
+  data() {
     return {
       isLoaded: false,
     }
@@ -51,9 +51,9 @@ emits: ['load'],
           name: 'description',
           type: 'text',
           value: this.image.description,
-        }
+        },
       ]
-    }
+    },
   },
   mounted() {
     const viewportMeta = document.createElement('meta')
@@ -62,15 +62,15 @@ emits: ['load'],
     document.head.appendChild(viewportMeta)
   },
   methods: {
-    saveEditableFields(fields) {
+    saveEditableFields(fields: any[]) {
       console.log('save', fields)
     },
-    onImgLoad () {
+    onImgLoad() {
       this.isLoaded = true
       // console.log('i-mage loaded', this.image.id)
       this.$emit('load')
     },
-  }
+  },
 })
 </script>
 <style scoped>

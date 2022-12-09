@@ -1,65 +1,4 @@
-<template>
-  <div class="container">
-    <h3>Albums for the account ({{ getAccount }})</h3>
-    <div class="row justify-content-md-center">
-      <div class="col col-md-auto">
-        <b-input-group class="search">
-          <template #prepend>
-            <b-input-group-text v-if="!searchString?.length">Search</b-input-group-text>
-            <b-input-group-text v-if="searchString?.length">
-              <b-button class="clear" @click="clearSearch">X</b-button>
-            </b-input-group-text>
-          </template>
-          <b-form-input
-            v-model="searchString"
-            type="search"
-            placeholder="search by title or id"
-            @keyup="searchKeyup"
-          ></b-form-input>
-          <template #append>
-            <b-button type="button" class="btn" @click="search">🔎</b-button>
-          </template>
-        </b-input-group>
-      </div>
-    </div>
-    <b-pagination
-      v-model="selectedPage"
-      :total-rows="count"
-      :per-page="perPage"
-      aria-controls="itemList"
-      align="center"
-      pills
-    ></b-pagination>
-    <ul id="itemList" class="list-unstyled">
-      <li v-for="albumList in albumsList" :key="albumList[0].id">
-        <b-row>
-          <b-col :md="6" class="mb-3">
-            <b-card v-if="albumList[0]" class="card" @click="goToImagesPage(albumList[0].id)">
-              <span>{{ albumList[0].title }}</span>
-              <img :src="`https://i.imgur.com/${albumList[0].cover}m.jpg`" />
-            </b-card>
-          </b-col>
-          <b-col :md="6" class="mb-3">
-            <b-card v-if="albumList[1]" class="card" @click="goToImagesPage(albumList[1].id)">
-              <span>{{ albumList[1].title }}</span>
-              <img :src="`https://i.imgur.com/${albumList[1].cover}m.jpg`" />
-            </b-card>
-          </b-col>
-        </b-row>
-      </li>
-    </ul>
-    <b-pagination
-      v-model="selectedPage"
-      :total-rows="count"
-      :per-page="perPage"
-      aria-controls="itemList"
-      align="center"
-      pills
-    ></b-pagination>
-  </div>
-</template>
-
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import { mapGetters } from 'vuex'
 
@@ -154,6 +93,68 @@ export default defineComponent({
   },
 })
 </script>
+
+<template>
+  <div class="container">
+    <h3>Albums for the account ({{ getAccount }})</h3>
+    <div class="row justify-content-md-center">
+      <div class="col col-md-auto">
+        <b-input-group class="search">
+          <template #prepend>
+            <b-input-group-text v-if="!searchString?.length">Search</b-input-group-text>
+            <b-input-group-text v-if="searchString?.length">
+              <b-button class="clear" @click="clearSearch">X</b-button>
+            </b-input-group-text>
+          </template>
+          <b-form-input
+            v-model="searchString"
+            type="search"
+            placeholder="search by title or id"
+            @keyup="searchKeyup"
+          ></b-form-input>
+          <template #append>
+            <b-button type="button" class="btn" @click="search">🔎</b-button>
+          </template>
+        </b-input-group>
+      </div>
+    </div>
+    <b-pagination
+      v-model="selectedPage"
+      :total-rows="count"
+      :per-page="perPage"
+      aria-controls="itemList"
+      align="center"
+      pills
+    ></b-pagination>
+    <ul id="itemList" class="list-unstyled">
+      <li v-for="albumList in albumsList" :key="albumList[0].id">
+        <b-row>
+          <b-col :md="6" class="mb-3">
+            <b-card v-if="albumList[0]" class="card" @click="goToImagesPage(albumList[0].id)">
+              <span>{{ albumList[0].title }}</span>
+              <img :src="`https://i.imgur.com/${albumList[0].cover}m.jpg`" />
+            </b-card>
+          </b-col>
+          <b-col :md="6" class="mb-3">
+            <b-card v-if="albumList[1]" class="card" @click="goToImagesPage(albumList[1].id)">
+              <span>{{ albumList[1].title }}</span>
+              <img :src="`https://i.imgur.com/${albumList[1].cover}m.jpg`" />
+            </b-card>
+          </b-col>
+        </b-row>
+      </li>
+    </ul>
+    <b-pagination
+      v-model="selectedPage"
+      :total-rows="count"
+      :per-page="perPage"
+      aria-controls="itemList"
+      align="center"
+      pills
+    ></b-pagination>
+  </div>
+</template>
+
 <style scoped>
 .search {
   text-align: center;

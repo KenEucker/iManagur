@@ -1,3 +1,20 @@
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'MysteryForm',
+  methods: {
+    goNextStep() {
+      this.$store.dispatch('incFormStep')
+    },
+    submit() {
+      console.log('submitted')
+    }
+  },
+})
+</script>
+
 <template>
   <b-container>
     <span>Post Tag</span>
@@ -15,18 +32,7 @@
     </div>
   </b-container>
 </template>
-<script>
-import { defineComponent } from 'vue'
 
-export default defineComponent({
-  name: 'MysteryForm',
-  methods: {
-    goNextStep() {
-      this.$store.dispatch('incFormStep')
-    },
-  },
-})
-</script>
 <style scoped>
 .found-img {
   float: left;

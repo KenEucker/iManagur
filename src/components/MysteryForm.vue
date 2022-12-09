@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <span>New Mystery Location</span>
-    <div><img class="img-fluid" src="@/assets/images/blank.png" /></div>
+    <div><img class="img-fluid" src="./assets/images/blank.png" /></div>
     <div class="p-3">
       <!-- <b-button>Photos</b-button> -->
       <label for="file-upload" class="custom-file-upload text-white">
@@ -24,7 +24,7 @@
     </div>
   </b-container>
 </template>
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
