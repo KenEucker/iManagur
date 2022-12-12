@@ -1,4 +1,4 @@
-# helping you manage your <img class="imgur" src="https://github.com/keneucker/iManagur/blob/production/public/images/imgur-logo.png" /> album images
+# helping you manage your <img class="imgur" src="https://raw.githubusercontent.com/KenEucker/iManagur/2a4aa23ed2278ab7c4cca099622add753c32269e/public/images/imgur-logo.png" /> album images
 
 I have been working with Imgur images and the Imgur API for several years now, and I really
 appreciate the service. No frills, no ads for third-party api usage, unlimited storage and

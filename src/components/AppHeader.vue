@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
+const route = useRoute()
+const router = useRouter()
+
+const isHelloWorld = computed(() => {
+  return route.name === 'Hello' ? false : true
+})
+function goBack() {
+  router.back()
+}
+</script>
+
 <template>
   <div v-if="isHelloWorld" class="p-2">
     <b-button class="menu-button" variant="primary" @click="goBack">
@@ -24,28 +39,6 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import { mapGetters } from 'vuex'
-
-export default defineComponent({
-  name: 'HeaderTemplate',
-  computed: {
-    isHelloWorld() {
-      return this.$route.name === 'Hello' ? false : true
-    },
-    ...mapGetters(['getAccount', 'getAlbum', 'getImages', 'getLogo']),
-  },
-  methods: {
-    helloPage: function () {
-      this.$router.push('/')
-    },
-    goBack: function () {
-      this.$router.back()
-    },
-  },
-})
-</script>
 <style scoped>
 .header-logo .logo {
   width: 8rem;

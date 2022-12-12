@@ -3,14 +3,8 @@
     <b-card>
       <h6 class="image-title">{{ image.title }}</h6>
       <div class="img-wrapper">
-        <editable-image
-          class="image img-fluid"
-          :image="image"
-          :fields="imageEditableFields"
-          :save-fields="saveEditableFields"
-          alt="image"
-          @load="onImgLoad"
-        ></editable-image>
+        <EditableImage class="image img-fluid" :image="image" :fields="imageEditableFields"
+          :save-fields="saveEditableFields" alt="image" @load="onImgLoad" />
       </div>
       <span class="image-description">{{ image.description }}</span>
     </b-card>
@@ -18,7 +12,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import EditableImage from '@/EditableImage.vue'
+import EditableImage from './EditableImage.vue'
 
 export default defineComponent({
   name: 'IMage',
@@ -78,7 +72,7 @@ export default defineComponent({
   position: relative;
 }
 
-.img-wrapper > .image-title {
+.img-wrapper>.image-title {
   position: absolute;
   top: 0;
   left: 0;
@@ -93,7 +87,7 @@ export default defineComponent({
   /* border-radius: 10px; */
 }
 
-.img-wrapper > .image-description {
+.img-wrapper>.image-description {
   position: absolute;
   right: 1rem;
   bottom: 0;

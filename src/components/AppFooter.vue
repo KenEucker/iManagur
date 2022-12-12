@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <div class="container full bottom">
     <footer class="footer container my-5">
@@ -12,13 +15,7 @@
     </footer>
   </div>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue'
 
-export default defineComponent({
-  name: 'PageFooter',
-})
-</script>
 <style scoped>
 .back-to-home a i {
   font-size: 5em;
